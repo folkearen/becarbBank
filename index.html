@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Becarb Bank</title>
+</head>
+<body>
+    <header>
+        <h1>Becarb Bank</h1>
+        <p>Cada Becarb Coin es un pedacito de felicidad</p>
+    </header>
+    <main>
+        <section class="crearBC">
+            <label for="creador">Ingresar código Becarb Coin a crear: </label>
+            <input type="text" id="creador" name="creador">
+
+            <label for="valor">Denominación del Becarb Coin a crear: </label>
+            <input type="number" id="valor" name="creador">
+
+            <button id="btn_crear">Crear Becarb Coin</button>
+            <p id="textCreadorMsn"></p>
+        </section>
+
+        <section class="comprobarBC">
+            <label for="comprobador">Ingresar código Becarb Coin a comprobar: </label>
+            <input type="text" id="comprobador" name="comprobador">
+
+            <button id="btn_comprobar">Comprobar Becarb Coin</button>
+            <p id="textComprobadorMsn"></p>
+        </section>
+
+        <section class="reutilizarBC">
+            <label for="reutilizador">Ingresar código Becarb Coin a reutilizar: </label>
+            <input type="text" id="reutilizador" name="reutilizador">
+
+            <button id="btn_reutilizar">Reutilizar Becarb Coin</button>
+            <p id="textReutilizadorMsn"></p>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
