@@ -3,9 +3,21 @@
 -Una funcion que compruebe y confirtme  el codigo del billete, muestre valides y denominacion y elemine de los codigos diponibles y lso transfiera a usados
 -Una funcion que pueda tomar los codigosusados y llevarlos nuevamente a utilibles
 */
+import {crearBB} from './firebase.js'
 
+// window.addEventListener('DOMContentLoaded', () => {});
 
+// const formCrearBC = document.getElementById("crearBC");
 
+// formCrearBC.addEventListener('submit', (e) => {
+//     e.preventDefault()
+
+//     const codigoBC = formCrearBC["creador"]
+//     const denominacionBC = formCrearBC["valor"]
+
+//     crearBB(codigoBC.value, denominacionBC.value) 
+//     msnCreador.innerText = `Becarb Coin ${datoACrearBC.value} añadido extiosamente` 
+// })
 const datoACrearBC = document.querySelector("#creador");
 const datoADenominarBC = document.querySelector("#valor");
 const btn_crearBC = document.querySelector("#btn_crear");
@@ -20,14 +32,12 @@ const btn_reutilizarBC = document.querySelector("#btn_reutilizar");
 const msnReutilizar = document.querySelector("#textReutilizadorMsn");
 
 
-let becarbCoin = {};
-let utilizadoBC = {};
 
 const crearBecarbCoin = () =>{
-    becarbCoin[datoACrearBC.value] = datoADenominarBC.value;
+    //becarbCoin[datoACrearBC.value] = datoADenominarBC.value;
+    crearBB(datoACrearBC.value, datoADenominarBC.value) 
     msnCreador.innerText = `Becarb Coin ${datoACrearBC.value} añadido extiosamente` 
-    console.log(becarbCoin)
-
+    //console.log(becarbCoin)
 }
 
  const comprobarBecarbCoin = () => {
@@ -54,19 +64,19 @@ btn_crearBC.addEventListener('click', crearBecarbCoin);
 btn_comprobadorBC.addEventListener('click', comprobarBecarbCoin);
 btn_reutilizarBC.addEventListener('click', reutilizaBC);
 
-/*crearBecarbCoin("AA1", 50);
-crearBecarbCoin("AA2", 150);
-crearBecarbCoin("AA3", 150);
-console.log(becarbCoin)
-comprobarBecarbCoin("AA1")
-console.log(becarbCoin)
-console.log(utilizadoBC)
-comprobarBecarbCoin("AA2")
-console.log(becarbCoin)
-console.log(utilizadoBC)
-reutilizaBC("AA1")
-console.log(becarbCoin)
-console.log(utilizadoBC)
-reutilizaBC("AA2")
-console.log(becarbCoin)
-console.log(utilizadoBC)*/
+// /*crearBecarbCoin("AA1", 50);
+// crearBecarbCoin("AA2", 150);
+// crearBecarbCoin("AA3", 150);
+// console.log(becarbCoin)
+// comprobarBecarbCoin("AA1")
+// console.log(becarbCoin)
+// console.log(utilizadoBC)
+// comprobarBecarbCoin("AA2")
+// console.log(becarbCoin)
+// console.log(utilizadoBC)
+// reutilizaBC("AA1")
+// console.log(becarbCoin)
+// console.log(utilizadoBC)
+// reutilizaBC("AA2")
+// console.log(becarbCoin)
+// console.log(utilizadoBC)*/
