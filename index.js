@@ -3,9 +3,16 @@
 -Una funcion que compruebe y confirtme  el codigo del billete, muestre valides y denominacion y elemine de los codigos diponibles y lso transfiera a usados
 -Una funcion que pueda tomar los codigosusados y llevarlos nuevamente a utilibles
 */
-import {crearBB} from './firebase.js'
+import {crearBB, bBCirculacion} from './firebase.js'
 
-// window.addEventListener('DOMContentLoaded', () => {});
+
+window.addEventListener('DOMContentLoaded', async () => {
+    const querySnapshot = await bBCirculacion();
+    querySnapshot.forEach(doc => console.log(doc.data()));
+}); 
+
+
+
 
 // const formCrearBC = document.getElementById("crearBC");
 
@@ -32,22 +39,22 @@ const btn_reutilizarBC = document.querySelector("#btn_reutilizar");
 const msnReutilizar = document.querySelector("#textReutilizadorMsn");
 
 
-
 const crearBecarbCoin = () =>{
-    //becarbCoin[datoACrearBC.value] = datoADenominarBC.value;
+    //becarbCoin[datoACrearBC.value] = datoADenominarBC.value; 
     crearBB(datoACrearBC.value, datoADenominarBC.value) 
     msnCreador.innerText = `Becarb Coin ${datoACrearBC.value} añadido extiosamente` 
     //console.log(becarbCoin)
 }
 
  const comprobarBecarbCoin = () => {
-    if(Object.keys(becarbCoin).includes(comprobadorBC.value)){
-        utilizadoBC[comprobadorBC.value] = becarbCoin[comprobadorBC.value];
-        msnComprobar.innerText = `Becarb Coin de $${becarbCoin[comprobadorBC.value]} validado` 
-        delete becarbCoin[comprobadorBC.value];
-        console.log(becarbCoin)
-        console.log(utilizadoBC)
-    }
+    
+    // if(Object.keys(becarbCoin).includes(comprobadorBC.value)){
+    //     utilizadoBC[comprobadorBC.value] = becarbCoin[comprobadorBC.value];
+    //     msnComprobar.innerText = `Becarb Coin de $${becarbCoin[comprobadorBC.value]} validado` 
+    //     delete becarbCoin[comprobadorBC.value];
+    //     console.log(becarbCoin)
+    //     console.log(utilizadoBC)
+    //
 }
 
 const reutilizaBC = () => {

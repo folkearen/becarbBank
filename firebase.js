@@ -1,7 +1,7 @@
 
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-  import {getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js"
+  import {getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js"
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,4 +22,4 @@
 
 export const crearBB = (codigoBecarbCoin, denominacionBecarbCoin ) =>  addDoc(collection(db, 'crarBecarbCoin'), {codigoBecarbCoin, denominacionBecarbCoin});
 
-export const bBCirculacion = () => {};
+export const bBCirculacion = () => getDocs(collection(db, 'crarBecarbCoin'));
