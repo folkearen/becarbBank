@@ -3,18 +3,22 @@
 -Una funcion que compruebe y confirtme  el codigo del billete, muestre valides y denominacion y elemine de los codigos diponibles y lso transfiera a usados
 -Una funcion que pueda tomar los codigosusados y llevarlos nuevamente a utilibles
 */
-import {crearBB, bBCirculacion} from './firebase.js'
+import {crearBB, bCCirculacion} from './firebase.js'
 
 
 window.addEventListener('DOMContentLoaded', async () => {
-    const querySnapshot = await bBCirculacion();
-    querySnapshot.forEach(doc => console.log(doc.data()));
+    const querySnapshot = await bCCirculacion();
+    //querySnapshot.forEach(doc => console.log(doc.data()));
 }); 
+let b =[]
+const a = await bCCirculacion()
+a.forEach(doc => b.push((doc.data().codigoBecarbCoin)));
+console.log(b)
+console.log(b.includes("x"))
 
 
 
-
-// const formCrearBC = document.getElementById("crearBC");
+// const formCr)earBC = document.getElementById("crearBC");
 
 // formCrearBC.addEventListener('submit', (e) => {
 //     e.preventDefault()

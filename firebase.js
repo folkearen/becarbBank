@@ -22,4 +22,4 @@
 
 export const crearBB = (codigoBecarbCoin, denominacionBecarbCoin ) =>  addDoc(collection(db, 'crarBecarbCoin'), {codigoBecarbCoin, denominacionBecarbCoin});
 
-export const bBCirculacion = () => getDocs(collection(db, 'crarBecarbCoin'));
+export const bCCirculacion = () => getDocs(collection(db, 'crarBecarbCoin'));
