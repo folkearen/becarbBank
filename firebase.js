@@ -20,6 +20,6 @@
 
   const db = getFirestore();
 
-export const crearBB = (codigoBecarbCoin, denominacionBecarbCoin ) =>  addDoc(collection(db, 'crarBecarbCoin'), {codigoBecarbCoin, denominacionBecarbCoin});
+export const crearBB = (codigoBecarbCoin, denominacionBecarbCoin ) =>  addDoc(collection(db, 'crearBecarbCoin'), {codigoBecarbCoin, denominacionBecarbCoin});
 
-export const bCCirculacion = () => getDocs(collection(db, 'crarBecarbCoin'));
+export const bCCirculacion = () => getDocs(collection(db, 'crearBecarbCoin'));

@@ -5,30 +5,23 @@
 */
 import {crearBB, bCCirculacion} from './firebase.js'
 
+let listarBCAlmacenados =[]
+let listarBCAlmacenadosExtend =[]
+// window.addEventListener('DOMContentLoaded', async () => {
+//     // const querySnapshot = await bCCirculacion();
+//     // querySnapshot.forEach(doc => console.log(doc.data()));
+//     const codigosBCAlmacenados = await bCCirculacion()
+//     await codigosBCAlmacenados.forEach(doc => listarBCAlmacenados.push((doc.data().codigoBecarbCoin)));
+//     await codigosBCAlmacenados.forEach(doc => listarBCAlmacenadosExtend.push((doc.data())));
+//     console.log(listarBCAlmacenadosExtend)
 
-window.addEventListener('DOMContentLoaded', async () => {
-    const querySnapshot = await bCCirculacion();
-    //querySnapshot.forEach(doc => console.log(doc.data()));
-}); 
-let b =[]
-const a = await bCCirculacion()
-a.forEach(doc => b.push((doc.data().codigoBecarbCoin)));
-console.log(b)
-console.log(b.includes("x"))
+// }); 
+const codigosBCAlmacenados = await bCCirculacion()
+codigosBCAlmacenados.forEach(doc => listarBCAlmacenados.push((doc.data().codigoBecarbCoin)));
+ codigosBCAlmacenados.forEach(doc => listarBCAlmacenadosExtend.push((doc.data())));
+console.log(listarBCAlmacenadosExtend)
 
 
-
-// const formCr)earBC = document.getElementById("crearBC");
-
-// formCrearBC.addEventListener('submit', (e) => {
-//     e.preventDefault()
-
-//     const codigoBC = formCrearBC["creador"]
-//     const denominacionBC = formCrearBC["valor"]
-
-//     crearBB(codigoBC.value, denominacionBC.value) 
-//     msnCreador.innerText = `Becarb Coin ${datoACrearBC.value} añadido extiosamente` 
-// })
 const datoACrearBC = document.querySelector("#creador");
 const datoADenominarBC = document.querySelector("#valor");
 const btn_crearBC = document.querySelector("#btn_crear");
@@ -42,11 +35,18 @@ const reutilizadorBC = document.querySelector("#reutilizador");
 const btn_reutilizarBC = document.querySelector("#btn_reutilizar");
 const msnReutilizar = document.querySelector("#textReutilizadorMsn");
 
+const reload = document.getElementById('reload');
 
+reload.addEventListener("click", () => location.reload());
 const crearBecarbCoin = () =>{
     //becarbCoin[datoACrearBC.value] = datoADenominarBC.value; 
-    crearBB(datoACrearBC.value, datoADenominarBC.value) 
-    msnCreador.innerText = `Becarb Coin ${datoACrearBC.value} añadido extiosamente` 
+    if(listarBCAlmacenados.includes(datoACrearBC.value)){
+        msnCreador.innerHTML = `<p style="color:white; background-color:red; display:inline"> <span style="font-weight:bold">¡ERROR!</span> Becarb Coin ${datoACrearBC.value} ya existe</p>`;
+    }else {
+        crearBB(datoACrearBC.value, datoADenominarBC.value) 
+        msnCreador.innerHTML =  `<p style="color:white; background-color:green; display:inline">Becarb Coin ${datoACrearBC.value} añadido <span style="font-weight:bold" >¡EXITOSAMENTE!</span></p>`;  
+    }
+   
     //console.log(becarbCoin)
 }
 
@@ -58,17 +58,16 @@ const crearBecarbCoin = () =>{
     //     delete becarbCoin[comprobadorBC.value];
     //     console.log(becarbCoin)
     //     console.log(utilizadoBC)
-    //
 }
 
 const reutilizaBC = () => {
-    if(Object.keys(utilizadoBC).includes(reutilizadorBC.value)) {
-        becarbCoin[reutilizadorBC.value] = utilizadoBC[reutilizadorBC.value];
-        msnReutilizar.innerText = `Becarb Coin ${reutilizadorBC.value} listo para ser usado nuevamente`
-        delete utilizadoBC[reutilizadorBC.value];
-        console.log(becarbCoin)
-        console.log(utilizadoBC)
-    }
+    // if(Object.keys(utilizadoBC).includes(reutilizadorBC.value)) {
+    //     becarbCoin[reutilizadorBC.value] = utilizadoBC[reutilizadorBC.value];
+    //     msnReutilizar.innerText = `Becarb Coin ${reutilizadorBC.value} listo para ser usado nuevamente`
+    //     delete utilizadoBC[reutilizadorBC.value];
+    //     console.log(becarbCoin)
+    //     console.log(utilizadoBC)
+    // }
 }
 
 btn_crearBC.addEventListener('click', crearBecarbCoin);

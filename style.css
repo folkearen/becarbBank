@@ -2,3 +2,13 @@ header {
     text-align: center;
     
 }
+
+main {
+    display: flex;
+    
+}
+
+footer {
+    display: flex;
+    justify-content: space-around
+}

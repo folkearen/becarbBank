@@ -12,7 +12,7 @@
         <h1>Becarb Bank beta</h1>
         <p>Cada Becarb Coin es un pedacito de felicidad</p>
     </header>
-    <main>
+    <main> 
         <section id="crearBC">
             <label for="creador">Ingresar código Becarb Coin a crear: </label>
             <input type="text" id="creador" name="creador">
@@ -21,7 +21,8 @@
             <input type="number" id="valor" name="creador">
 
             <button id="btn_crear">Crear Becarb Coin</button>
-            <p id="textCreadorMsn"></p>
+            <div id="textCreadorMsn"></div>
+            
         </section>
 
         <section class="comprobarBC">
@@ -29,6 +30,7 @@
             <input type="text" id="comprobador" name="comprobador">
 
             <button id="btn_comprobar">Comprobar Becarb Coin</button>
+            <button id="reload">Click para recargar</button>
             <p id="textComprobadorMsn"></p>
         </section>
 
@@ -41,7 +43,12 @@
         </section>
     </main>
     <footer>
-
+        <div id="enCirculacion"> 
+            <p>Becar Coin en circulación</p>
+        </div>
+        <div id="fueraCirculacion">
+            <p>Becar Coin fuera circulación</p>
+        </div>
     </footer>
     <script type="module" src="index.js"></script>
    
