@@ -8,7 +8,19 @@ main {
 
 }
 
-footer {
+
+.circulacion-container {
     display: flex;
-    justify-content: space-around
+    justify-content: space-evenly;
+    width: 50%;
+}
+.circulacion-cabecera {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+ 
+
+.enCirculacion {
+    display: inline-block;
 }
