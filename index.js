@@ -20,9 +20,11 @@ const btn_reutilizarBC = document.querySelector("#btn_reutilizar");
 const msnReutilizar = document.querySelector("#textReutilizadorMsn");
 
 const enCiruclacion = document.getElementById("enCirculacion");
+const switchBtn = document.querySelector('.switch input[type="checkbox"]');
+
 // const fueraCirulacion = document.getElementById("fueraCirculacion")
-const btn_actualizarDivisasActivas = document.getElementById("btn_actualizarActivos")
-const btn_ocultarDivisasActivas = document.getElementById("btn_ocultarActivos")
+// const btn_actualizarDivisasActivas = document.getElementById("btn_actualizarActivos")
+// const btn_ocultarDivisasActivas = document.getElementById("btn_ocultarActivos")
 
 
 const crearBecarbCoin = async() =>{
@@ -49,21 +51,36 @@ const crearBecarbCoin = async() =>{
        // i++
        // enCiruclacion.innerText += `${i} | ${elemet.codigoBecarbCoin} | $${elemet.denominacionBecarbCoin} \n`; } )
 }
+const listarActivosBc = async _ =>  {
+    if (switchBtn.checked) {
+        const codigosBCAlmacenados = await bCCirculacion();
+        let listarBCAlmacenadosExtend =[]
+        codigosBCAlmacenados.forEach(doc => listarBCAlmacenadosExtend.push((doc.data())));
+        enCiruclacion.innerText = ""
+        let i = 0; 
+        listarBCAlmacenadosExtend.forEach((elemet) => {
+            i++
+            enCiruclacion.innerText += `N°${i} - ${elemet.codigoBecarbCoin} : $${elemet.denominacionBecarbCoin} \u00A0 \u00A0 | \u00A0 \u00A0 ` })
+    } else {
+        enCiruclacion.innerText = "" 
+    }
+  };
 
-const listarBCcirculantes = async _ => {
-    const codigosBCAlmacenados = await bCCirculacion();
-    let listarBCAlmacenadosExtend =[]
-    codigosBCAlmacenados.forEach(doc => listarBCAlmacenadosExtend.push((doc.data())));
-    enCiruclacion.innerText = ""
-    let i = 0; 
-    listarBCAlmacenadosExtend.forEach((elemet) => {
-        i++
-        enCiruclacion.innerText += `${i} | ${elemet.codigoBecarbCoin} | $${elemet.denominacionBecarbCoin} \n`; } )
-}
+// const listarBCcirculantes = async _ => {
+//     const codigosBCAlmacenados = await bCCirculacion();
+//     let listarBCAlmacenadosExtend =[]
+//     codigosBCAlmacenados.forEach(doc => listarBCAlmacenadosExtend.push((doc.data())));
+//     enCiruclacion.innerText = ""
+//     let i = 0; 
+//     listarBCAlmacenadosExtend.forEach((elemet) => {
+//         i++
+//         enCiruclacion.innerText += `${i} - ${elemet.codigoBecarbCoin} : $${elemet.denominacionBecarbCoin} \n` })
+// }
 
-const ocultarListaBCcirculantes = _ => {
-    enCiruclacion.innerText = "" 
-}
+// const ocultarListaBCcirculantes = _ => {
+//     enCiruclacion.innerText = "" 
+// }
+
  const comprobarBecarbCoin = () => {
     
     // if(Object.keys(becarbCoin).includes(comprobadorBC.value)){
@@ -90,7 +107,8 @@ const reutilizaBC = () => {
 
 btn_crearBC.addEventListener('click',crearBecarbCoin);
 btn_comprobadorBC.addEventListener('click', comprobarBecarbCoin);
-btn_reutilizarBC.addEventListener('click', reutilizaBC);
-btn_actualizarDivisasActivas.addEventListener('click',listarBCcirculantes )
-btn_ocultarDivisasActivas.addEventListener('click', ocultarListaBCcirculantes)
+switchBtn.addEventListener('change', listarActivosBc)
+// btn_reutilizarBC.addEventListener('click', reutilizaBC);
+// btn_actualizarDivisasActivas.addEventListener('click',listarBCcirculantes )
+// btn_ocultarDivisasActivas.addEventListener('click', ocultarListaBCcirculantes)
 
