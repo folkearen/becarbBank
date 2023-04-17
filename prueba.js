@@ -1,5 +1,5 @@
+let a = [1,2,3,5,6]
 
-for (let index = 0; index < 10; index++) {
-    console.log(`${index} \n`)
-    
-}
+let b = 1
+
+console.log(a.includes(b))

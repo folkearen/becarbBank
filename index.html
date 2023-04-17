@@ -8,22 +8,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=PT+Sans+Caption:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-   
+    <link rel="shortcut icon" href="./img/IMAGOTIPO-COLOR.png">
     <title>Becarb Bank</title>
 </head>
 <body>
     <header>
         <img src="" alt="">
-        <h1>Ceinted <span></span> Coin</h1>
-        <p>Ceinted, tu aliado en el camino al éxito financiero</p>
+        <h1>Ceinted<span><img src="./img/medio.png" alt=""></span>Bank</h1>
+        <p>Ceinted, invierte inteligente</p>
     </header>
     <main> 
         <section id="crearBC" class="crearBC">
             <label for="creador">Ingresar código Ceinted Coin a crear: </label>
             <input type="text" id="creador" name="creador" placeholder=" Ej: pr12xs34 ">
+            <div class="denomiacines">
+                <label for="valor">Denominación del Ceinted Coin a crear: </label>
+                <input type="number" id="valor" name="creador" placeholder=" Ej: 100">
+                
+                <!-- <label for="">Denominación del Ceinted Coin a crear: <br> </label>
+                <input type="radio" name="deno" value="10" id="deno" class="denoN">
+                <label for="deno5">$10</label>
+                <input type="radio" name="deno" value="30" id="deno" class="denoN">
+                <label for="deno5">$30</label>
+                <input type="radio" name="deno" value="50" id="deno" class="denoN">
+                <label for="deno5">$50</label>
+                <input type="radio" name="deno" value="100" id="deno" class="denoN">
+                <label for="deno5">$100</label>-->
+            </div> 
 
-            <label for="valor">Denominación del Ceinted Coin a crear: <span>    </span></label>
-            <input type="number" id="valor" name="creador" placeholder=" Ej: 100">
 
             <button id="btn_crear">Crear Ceinted Coin</button>
             <div id="textCreadorMsn"></div>
@@ -39,6 +51,9 @@
             <p id="textComprobadorMsn"></p>
         </section>
         <div class="circulacion-container">
+            <div class="imageFooter">
+                <img src="./img/IMAGOTIPO-COLOR.svg" alt="">
+            </div>
             <div class="circulacion-cabecera">
                 <label class="switch">
                     <input type="checkbox">
@@ -67,10 +82,6 @@
         <div id="enCirculacion" class="enCirculacion"> 
             
         </div>
-        <div class="imageFooter">
-            <img src="./img/IMAGOTIPO-COLOR.svg" alt="">
-        </div>
-  
     </footer>
     <script type="module" src="index.js"></script>
    

@@ -8,6 +8,8 @@ import {crearBB, bCCirculacion} from './firebase.js'
 
 const datoACrearBC = document.querySelector("#creador");
 const datoADenominarBC = document.querySelector("#valor");
+
+
 const btn_crearBC = document.querySelector("#btn_crear");
 const msnCreador = document.querySelector("#textCreadorMsn");
 
@@ -36,50 +38,39 @@ const crearBecarbCoin = async() =>{
     codigosBCAlmacenados.forEach(doc => listarBCAlmacenados.push((doc.data().codigoBecarbCoin)));
     //console.log(listarBCAlmacenadosExtend)
     //codigosBCAlmacenados.forEach(doc => listarBCAlmacenadosExtend.push((doc.data())));
-    
-    if(listarBCAlmacenados.includes(datoACrearBC.value)){
-        msnCreador.innerHTML = `<p style="color:white; background-color:red; display:inline"><span style="font-weight:bold">\u00A0 \u00A0¡ERROR!</span> Becarb Coin ${datoACrearBC.value} ya existe\u00A0 \u00A0</p>`;
+    if(datoACrearBC.value === "" ||  datoADenominarBC.value < 1) {
+        msnCreador.innerHTML = `<p style="color:white; background-color:red; display:inline"><span style="font-weight:bold">\u00A0 \u00A0¡ERROR!</span> Los campos no puedeb estar vacios\u00A0 \u00A0</p>`;
+        setTimeout(() => {
+            msnCreador.innerText = " " ; }, "5000");
+
+    }else if(listarBCAlmacenados.includes(datoACrearBC.value)){
+        msnCreador.innerHTML = `<p style="color:white; background-color:red; display:inline"><span style="font-weight:bold">\u00A0 \u00A0¡ERROR!</span> Ceinted Coin ${datoACrearBC.value} ya existe\u00A0 \u00A0</p>`;
+        setTimeout(() => {
+            msnCreador.innerText = " " ; 
+            datoACrearBC.value = "";
+            datoADenominarBC.value = ""}, "5000");
     }else {
         crearBB(datoACrearBC.value, datoADenominarBC.value) 
-        msnCreador.innerHTML = `<p style="color:white; background-color:green; display:inline">\u00A0 \u00A0Becarb Coin ${datoACrearBC.value} añadido<span style="font-weight:bold" >¡EXITOSAMENTE!\u00A0 \u00A0</span></p>`;  
+        msnCreador.innerHTML = `<p style="color:white; background-color:green; display:inline">\u00A0 \u00A0Ceinted Coin ${datoACrearBC.value} añadido<span style="font-weight:bold" >¡EXITOSAMENTE!\u00A0 \u00A0</span></p>`;  
+        setTimeout(() => {
+            msnCreador.innerText = " " ; 
+            datoACrearBC.value = "";
+            datoADenominarBC.value = ""}, "5000");
     }
-    // enCiruclacion.innerText = ""
-    // codigosBCAlmacenados.forEach(doc => enCiruclacion.innerText += `${doc.data().codigoBecarbCoin} - ${doc.data().denominacionBecarbCoin} \n` );
-    //enCiruclacion.innerText = ""
-    //let i = 0; 
-   // listarBCAlmacenadosExtend.forEach((elemet) => {
-       // i++
-       // enCiruclacion.innerText += `${i} | ${elemet.codigoBecarbCoin} | $${elemet.denominacionBecarbCoin} \n`; } )
+
 }
 const listarActivosBc = async _ =>  {
     if (switchBtn.checked) {
         const codigosBCAlmacenados = await bCCirculacion();
         let listarBCAlmacenadosExtend =[]
         codigosBCAlmacenados.forEach(doc => listarBCAlmacenadosExtend.push((doc.data())));
-        enCiruclacion.innerText = ""
-        let i = 0; 
+        enCiruclacion.innerText = ` Total de Ceinted Coin en circulacion: ${listarBCAlmacenadosExtend.length}\n \n  ` 
         listarBCAlmacenadosExtend.forEach((elemet) => {
-            i++
-            enCiruclacion.innerText += `N°${i} - ${elemet.codigoBecarbCoin} : $${elemet.denominacionBecarbCoin} \u00A0 \u00A0 | \u00A0 \u00A0 ` })
+            enCiruclacion.innerText += `${elemet.codigoBecarbCoin} : $${elemet.denominacionBecarbCoin} \u00A0 \u00A0 ` })
     } else {
         enCiruclacion.innerText = "" 
     }
   };
-
-// const listarBCcirculantes = async _ => {
-//     const codigosBCAlmacenados = await bCCirculacion();
-//     let listarBCAlmacenadosExtend =[]
-//     codigosBCAlmacenados.forEach(doc => listarBCAlmacenadosExtend.push((doc.data())));
-//     enCiruclacion.innerText = ""
-//     let i = 0; 
-//     listarBCAlmacenadosExtend.forEach((elemet) => {
-//         i++
-//         enCiruclacion.innerText += `${i} - ${elemet.codigoBecarbCoin} : $${elemet.denominacionBecarbCoin} \n` })
-// }
-
-// const ocultarListaBCcirculantes = _ => {
-//     enCiruclacion.innerText = "" 
-// }
 
  const comprobarBecarbCoin = () => {
     
